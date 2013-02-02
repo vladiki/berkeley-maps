@@ -34,6 +34,7 @@ Developed by Craig Buckler (@craigbuckler) of OptimalWorks.net
 	// file selection
 	function FileSelectHandler(e) {
 
+
 		// cancel event and hover styling
 		FileDragHover(e);
 
@@ -57,13 +58,6 @@ Developed by Craig Buckler (@craigbuckler) of OptimalWorks.net
 	// output file information
 	function ParseFile(file) {
 
-		Output(
-			"<p>File information: <strong>" + file.name +
-			"</strong> type: <strong>" + file.type +
-			"</strong> size: <strong>" + file.size +
-			"</strong> bytes</p>"
-		);
-
 		// display an image
 		if (file.type.indexOf("image") == 0) {
 			var reader = new FileReader();
@@ -82,7 +76,6 @@ Developed by Craig Buckler (@craigbuckler) of OptimalWorks.net
 			reader.onload = function(e) {
 				var contents = e.target.result;
 				sched_info = ParseForInfo(e);
-				
 				splitByDays(sched_info);
 				Output(
 					"<p><strong>" + file.name + ":</strong></p><pre>" +
