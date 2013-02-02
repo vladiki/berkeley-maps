@@ -82,6 +82,7 @@ Developed by Craig Buckler (@craigbuckler) of OptimalWorks.net
 					e.target.result.replace(/</g, "&lt;").replace(/>/g, "&gt;") +
 					"</pre>"+ "<pre>"+contents.substr(0, contents.indexOf("END:VCALENDAR"))+"</pre>"
 				);
+				calcRoute("MO");
 
 			}
 			reader.readAsText(file);
