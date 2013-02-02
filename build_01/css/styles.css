@@ -22,9 +22,20 @@ body {
 	position: relative;
 	margin: auto;
 	width: 1000px;
+
+}
+.big_box{
+	position: relative;
+	float: left;
+
+	width: 1000px;
 	-webkit-box-shadow: 0px 0px 5px 3px #666;
 	box-shadow: 0px 0px 5px 3px #666; 
-
+}
+.content_wrapper {
+	position: relative;
+	float: left;
+	width: 1000px;
 }
 
 .nav_wrapper {
@@ -35,9 +46,45 @@ body {
 	background-color: #01004e;
 	color: #ffcc33;
 }
-
-.content_wrapper {
+.map_wrapper {
 	position: relative;
 	float: left;
 	width: 100%;
+	height: 500px;
+}
+.control_wrapper {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 500px;
+
+}
+
+.tab_wrapper {
+	position: relative;
+	float: left;
+	width: 700px;
+	overflow: hidden;
+}
+
+.upload_wrapper {
+	position: relative;
+	float: left;
+	width: 299px;
+	border-left: 1px solid #333333;
+}
+
+.footer_wrapper {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 25px;
+	background-color: #000;
+}
+
+.scrollable {
+	width: 700px;
+	height: 500px;
+	background-color: #330000;
+	overflow-y: scroll;
 }
