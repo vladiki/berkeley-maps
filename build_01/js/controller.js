@@ -22,7 +22,8 @@
         "WHEELER":"37.87090,-122.25893",
         "SODA":"37.87531,-122.25868",
         "LECONTE":"37.87275,-122.25777",
-        "EVANS":"Department of Mathematics: Evans Hall, Berkeley, CA"
+        "EVANS":"Department of Mathematics: Evans Hall, Berkeley, CA",
+        "CORY" : "37.874845, -122.257915",
       };
 
       function initialize() {
@@ -84,8 +85,8 @@
 
         }
         /* START AND ENDPOINTS ARE HARDCODE TO DWINELLE */
-        var start = "37.87054,-122.26035";
-        var end = "37.87054,-122.26035";       
+        var start = waypts[0].location;//"37.87054,-122.26035";
+        var end = waypts[waypts.length - 1].location;       
         // var checkboxArray = document.getElementById("waypoints");
         // for (var i = 0; i < checkboxArray.length; i++) {
         //   if (checkboxArray.options[i].selected == true) {
