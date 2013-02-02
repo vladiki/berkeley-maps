@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Berkeley Maps: Helping Freshmen since 2013</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link href="css/styles.css" rel="stylesheet">
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLIuB5nfUUonGTCwQBYQj_zW0NyqTBD48&sensor=true">
+    </script>
+
+    <script>
+
+      var directionsDisplay;
+      var directionsService = new google.maps.DirectionsService();
+      var map;
+
+      var rendererOptions = {
+        draggable: true
+      };
+
+      function initialize() {
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var ucb_center = new google.maps.LatLng(37.87213,-122.25923);
+        var mapOptions = {
+          zoom:16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: ucb_center
+        }
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        directionsDisplay.setMap(map);
+      }
+
+      function calcRoute() {
+
+
+        var start = document.getElementById("start").value;
+        var end = document.getElementById("end").value;
+
+        var request = {
+          origin:start,
+          destination:end,
+          travelMode: google.maps.TravelMode.WALKING,
+          provideRouteAlternatives:true
+        };
+        directionsService.route(request, function(result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(result);
+          }
+        });
+      }
+    </script>
+
+
+  </head>
+  <body onload="initialize();">
+    <div id="map_canvas"></div>
+    <div>
+    <strong>Start: </strong>
+    <select id="start" onchange="calcRoute();">
+      <option value="Cory Hall: Hearst Avenue @ LeRoy Avenue">Cory Hall</option>
+      <option value="37.87054,-122.26035">Dwinelle Hall</option>
+      <option value="37.87527,-122.25937">Etcheverry Hall</option>
+      <option value="37.87362,-122.25746">Evans Hall</option>
+      <option value="37.87275,-122.25777">LeConte Hall</option>
+      <option value="37.87282,-122.26468">Li Ka Shing Center</option>
+      <option value="37.87274,-122.25481">Lewis Hall</option>
+      <option value="37.87353,-122.25603">Pimentel Hall</option>
+      <option value="37.87531,-122.25868">Soda Hall</option>
+      <option value="Valley Life Sciences Building, Harmon Way, Berkeley, CA">Valley Life Sciences Building</option>
+      <option value="37.87090,-122.25893">Wheeler Hall</option>
+    </select>
+    <strong>End: </strong>
+    <select id="end" onchange="calcRoute();">
+      <option value="Cory Hall: Hearst Avenue @ LeRoy Avenue">Cory Hall</option>
+      <option value="37.87054,-122.26035">Dwinelle Hall</option>
+      <option value="37.87527,-122.25937">Etcheverry Hall</option>
+      <option value="37.87362,-122.25746">Evans Hall</option>
+      <option value="37.87275,-122.25777">LeConte Hall</option>
+      <option value="37.87282,-122.26468">Li Ka Shing Center</option>
+      <option value="37.87274,-122.25481">Lewis Hall</option>
+      <option value="37.87353,-122.25603">Pimentel Hall</option>
+      <option value="37.87531,-122.25868">Soda Hall</option>
+      <option value="Valley Life Sciences Building, Harmon Way, Berkeley, CA">Valley Life Sciences Building</option>
+      <option value="37.87090,-122.25893">Wheeler Hall</option>
+    </select>
+    </div>
+  </body>
+</html>
