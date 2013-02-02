@@ -20,10 +20,13 @@
         "LIKASHING":"Mulford Hall, Berkeley, CA",
         "VALLEYLSB":"Valley Life Sciences Building, Harmon Way, Berkeley, CA",
         "WHEELER":"37.87090,-122.25893",
+        "WHEELERAUD" : "37.87090,-122.25893",
         "SODA":"37.87531,-122.25868",
         "LECONTE":"37.87275,-122.25777",
         "EVANS":"Department of Mathematics: Evans Hall, Berkeley, CA",
         "CORY" : "37.874845, -122.257915",
+        "STANLEY" : "37.873855, -122.256552",
+        "DWINELLE" : "37.870696, -122.260189"
       };
 
       function initialize() {
@@ -154,6 +157,14 @@
 
       function splitByDays(sched){
         //sched is the dictionary we get from the parser that represents all of the classes
+        dayTable = {
+        "MO":[],
+        "TU":[],
+        "WE":[],
+        "TH":[],
+        "FR":[]
+        };
+
 
         for (key in sched){
           if(sched[key][3].indexOf("MO")!=-1){
