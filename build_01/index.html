@@ -64,7 +64,7 @@
         google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
           computeTotalDistance(directionsDisplay.directions);
         });
-        calcRoute();
+        calcRoute('MO');
       }
 
       // function calcRouteForDay(day) {
@@ -103,15 +103,19 @@
       // }
       function calcRoute(dayVar) {
 
-        var start = document.getElementById("start").value;
-        var end = document.getElementById("end").value;
+        
+        alert(dayVar);
+
         var waypts = [];
         for (key in dayTable[dayVar]){
+
           var val = translationTable[dayTable[dayVar][key][2]];
           alert(val);
           waypts.push({location:val});
 
-        }        
+        }
+        var start = waypts[0];
+        var end = waypts[waypts.length - 1];        
         // var checkboxArray = document.getElementById("waypoints");
         // for (var i = 0; i < checkboxArray.length; i++) {
         //   if (checkboxArray.options[i].selected == true) {
