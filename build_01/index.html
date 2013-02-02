@@ -245,8 +245,26 @@
               </div>
             </div>
             <div class="upload_wrapper">
-              upload here
-            </div>
+              <form id="upload" action="" method="POST" enctype="multipart/form-data">
+
+
+              <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+              <div>
+                
+                <label for="fileselect">Upload Schedule File:</label>
+                <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+                <div id="filedrag">Drag your .ics file here</div>
+              </div>
+
+              <div id="submitbutton">
+                <button type="submit">Upload Files</button>
+              </div>
+
+
+              </form>
+              <script src="js/parser.js"></script>
+          </div>
           </div>
 
         </div>
