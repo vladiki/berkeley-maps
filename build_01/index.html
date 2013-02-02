@@ -54,40 +54,40 @@
         calcRoute();
       }
 
-      function calcRouteForDay(day) {
-        alert(day[0]);
-        var loc1 = translationTable[day[0][2]];
-        var loc2 = translationTable[day[1][2]];
-        alert(loc1 + " ; "+loc2);
-        var start = "Berkeley, CA";
-        var end = "San Francisco, CA";
+      // function calcRouteForDay(day) {
+      //   alert(day[0]);
+      //   var loc1 = translationTable[day[0][2]];
+      //   var loc2 = translationTable[day[1][2]];
+      //   alert(loc1 + " ; "+loc2);
+      //   var start = "Berkeley, CA";
+      //   var end = "San Francisco, CA";
 
-        var request = {
-            origin: start,
-            destination: end,
-            waypoints: waypts,
-            optimizeWaypoints: false,
-            travelMode: google.maps.TravelMode.WALKING
-        };
+      //   var request = {
+      //       origin: start,
+      //       destination: end,
+      //       waypoints: waypts,
+      //       optimizeWaypoints: false,
+      //       travelMode: google.maps.TravelMode.WALKING
+      //   };
 
-        directionsService.route(request, function(response, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-            var route = response.routes[0];
-            var summaryPanel = document.getElementById("directions_panel");
-            summaryPanel.innerHTML = "";
-            // For each route, display summary information.
-            for (var i = 0; i < route.legs.length; i++) {
-              var routeSegment = i+1;
-              summaryPanel.innerHTML += "<b>Route Segment: " + routeSegment + "</b><br />";
-              summaryPanel.innerHTML += route.legs[i].start_address + " to ";
-              summaryPanel.innerHTML += route.legs[i].end_address + "<br />";
-              summaryPanel.innerHTML += route.legs[i].distance.text + "<br /><br />";
-            }
+      //   directionsService.route(request, function(response, status) {
+      //     if (status == google.maps.DirectionsStatus.OK) {
+      //       directionsDisplay.setDirections(response);
+      //       var route = response.routes[0];
+      //       var summaryPanel = document.getElementById("directions_panel");
+      //       summaryPanel.innerHTML = "";
+      //       // For each route, display summary information.
+      //       for (var i = 0; i < route.legs.length; i++) {
+      //         var routeSegment = i+1;
+      //         summaryPanel.innerHTML += "<b>Route Segment: " + routeSegment + "</b><br />";
+      //         summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+      //         summaryPanel.innerHTML += route.legs[i].end_address + "<br />";
+      //         summaryPanel.innerHTML += route.legs[i].distance.text + "<br /><br />";
+      //       }
 
-          }
-        });
-      }
+      //     }
+      //   });
+      // }
       function calcRoute() {
 
 
@@ -205,7 +205,10 @@
 
   </head>
   <body onload="initialize();">
-    <div id="map_canvas"></div>
+    <div class="main_wrapper">
+      <div class="nav_wrapper">logo goes here</div>
+      <div class="content_wrapper">
+          <div id="map_canvas"></div>
 
 
     <div id="control_panel">
@@ -264,7 +267,6 @@
 
 
 
-    <!--- Start file upload section -->
 
     <form id="upload" action="upload.php" method="POST" enctype="multipart/form-data">
 
@@ -295,9 +297,7 @@
     </div>
 
     <script src="js/parser.js"></script>
-
-
-
-
+  </div>
+    </div>
   </body>
 </html>
