@@ -19,6 +19,7 @@
       $(".tab").click(function() {
         dayVar = $(this).children().attr('href').substring(1,3);
         $("#map_canvas").appendTo("#"+dayVar);
+        calcRoute(dayVar);
       });
     });</script>
 
